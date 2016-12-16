@@ -1,0 +1,30 @@
+{
+    "name": "sonatra/cache-bundle",
+    "type": "symfony-bundle",
+    "description": "Add extra features to Symfony PSR-6 Cache Component",
+    "keywords": ["cache", "psr-6", "namespace", "prefix"],
+    "homepage": "https://github.com/sonatra/sonatra-cache-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "François Pluchino",
+            "email": "francois.pluchino@sonatra.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "symfony/framework-bundle": "~3.1",
+        "sonatra/cache": "~1.0@dev"
+    },
+    "autoload": {
+        "psr-4": { "Sonatra\\Bundle\\CacheBundle\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
