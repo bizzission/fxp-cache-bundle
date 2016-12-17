@@ -36,7 +36,7 @@ class CachePoolPass implements CompilerPassInterface
 
         foreach ($container->findTaggedServiceIds('cache.pool') as $id => $attributes) {
             $def = $container->getDefinition($id);
-            $name = substr(strrchr($def->getClass(), "\\"), 1);
+            $name = substr(strrchr($def->getClass(), '\\'), 1);
 
             if ($this->endsWith($name, 'Adapter')) {
                 $class = self::$stBase.$name;
