@@ -11,8 +11,8 @@
 
 namespace Sonatra\Bundle\CacheBundle\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Replace the symfony cache adapters by the sonatra cache adapters for all services
