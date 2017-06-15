@@ -11,6 +11,7 @@
 
 namespace Sonatra\Bundle\CacheBundle\Tests\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use Sonatra\Bundle\CacheBundle\DependencyInjection\Compiler\CachePoolPass;
 use Sonatra\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
@@ -24,7 +25,7 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class CachePoolPassTest extends \PHPUnit_Framework_TestCase
+class CachePoolPassTest extends TestCase
 {
     /**
      * @var ContainerBuilder

@@ -11,6 +11,7 @@
 
 namespace Sonatra\Bundle\CacheBundle\Tests\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use Sonatra\Bundle\CacheBundle\DependencyInjection\SonatraCacheExtension;
 use Sonatra\Bundle\CacheBundle\SonatraCacheBundle;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension;
@@ -23,7 +24,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class SonatraCacheExtensionTest extends \PHPUnit_Framework_TestCase
+class SonatraCacheExtensionTest extends TestCase
 {
     public function testNoConfig()
     {
