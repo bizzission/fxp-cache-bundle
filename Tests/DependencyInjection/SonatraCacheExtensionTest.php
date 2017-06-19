@@ -16,6 +16,7 @@ use Sonatra\Bundle\CacheBundle\DependencyInjection\SonatraCacheExtension;
 use Sonatra\Bundle\CacheBundle\SonatraCacheBundle;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
@@ -50,11 +51,12 @@ class SonatraCacheExtensionTest extends TestCase
                 'SonatraCacheBundle' => SonatraCacheBundle::class,
             ),
             'kernel.cache_dir' => sys_get_temp_dir().'/sonatra_cache_bundle',
-            'kernel.debug' => false,
+            'kernel.debug' => true,
             'kernel.environment' => 'test',
             'kernel.name' => 'kernel',
             'kernel.root_dir' => sys_get_temp_dir().'/sonatra_cache_bundle',
             'kernel.charset' => 'UTF-8',
+            'kernel.container_class' => Container::class,
         )));
 
         $sfExt = new FrameworkExtension();

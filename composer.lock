@@ -272,12 +272,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-cache.git",
-                "reference": "562f8712a3eef300a26a46c8f0d2aa58b26456d3"
+                "reference": "375aba72d155f8cab73876f6ac185a3805de4d50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-cache/zipball/562f8712a3eef300a26a46c8f0d2aa58b26456d3",
-                "reference": "562f8712a3eef300a26a46c8f0d2aa58b26456d3",
+                "url": "https://api.github.com/repos/sonatra/sonatra-cache/zipball/375aba72d155f8cab73876f6ac185a3805de4d50",
+                "reference": "375aba72d155f8cab73876f6ac185a3805de4d50",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
                 "prefix",
                 "psr-6"
             ],
-            "time": "2017-06-15 12:20:03"
+            "time": "2017-06-19 10:53:49"
         },
         {
             "name": "symfony/cache",

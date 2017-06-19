@@ -11,7 +11,9 @@
 
 namespace Sonatra\Bundle\CacheBundle;
 
+use Sonatra\Bundle\CacheBundle\DependencyInjection\Compiler\CacheCollectorPass;
 use Sonatra\Bundle\CacheBundle\DependencyInjection\Compiler\CachePoolPass;
+use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -28,5 +30,9 @@ class SonatraCacheBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new CachePoolPass());
+
+        if ($container->getParameter('kernel.debug')) {
+            $container->addCompilerPass(new CacheCollectorPass(), PassConfig::TYPE_BEFORE_REMOVING);
+        }
     }
 }
