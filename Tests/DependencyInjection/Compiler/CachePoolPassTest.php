@@ -50,7 +50,6 @@ class CachePoolPassTest extends TestCase
             'cache.adapter.filesystem' => $this->createCacheDefinition(SymfonyFilesystemAdapter::class),
             'cache.adapter.apcu' => $this->createCacheDefinition(SymfonyApcuAdapter::class),
             'cache.adapter.abstract_adapter' => $this->createCacheDefinition(AdapterInterface::class),
-            '' => $this->createCacheDefinition(AdapterInterface::class),
         );
 
         $this->container->addDefinitions($poolDefinitions);
