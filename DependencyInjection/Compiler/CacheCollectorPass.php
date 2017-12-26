@@ -77,6 +77,6 @@ class CacheCollectorPass implements CompilerPassInterface
     {
         $class = $def->getClass();
 
-        return $class === $validClass && $class !== TraceableTagAwareAdapter::class && $class !== TraceableAdapter::class;
+        return $class === $validClass && TraceableTagAwareAdapter::class !== $class && TraceableAdapter::class !== $class;
     }
 }
