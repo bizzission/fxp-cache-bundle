@@ -43,13 +43,13 @@ class FxpCacheExtensionTest extends TestCase
      *
      * @return ContainerBuilder
      */
-    protected function createContainer(array $configs = array(), array $parameters = array(), array $services = array())
+    protected function createContainer(array $configs = [], array $parameters = [], array $services = [])
     {
-        $container = new ContainerBuilder(new ParameterBag(array(
-            'kernel.bundles' => array(
+        $container = new ContainerBuilder(new ParameterBag([
+            'kernel.bundles' => [
                 'FrameworkBundle' => FrameworkBundle::class,
                 'FxpCacheBundle' => FxpCacheBundle::class,
-            ),
+            ],
             'kernel.cache_dir' => sys_get_temp_dir().'/fxp_cache_bundle',
             'kernel.debug' => true,
             'kernel.environment' => 'test',
@@ -57,7 +57,7 @@ class FxpCacheExtensionTest extends TestCase
             'kernel.root_dir' => sys_get_temp_dir().'/fxp_cache_bundle',
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => Container::class,
-        )));
+        ]));
 
         $sfExt = new FrameworkExtension();
         $extension = new FxpCacheExtension();
@@ -73,14 +73,14 @@ class FxpCacheExtensionTest extends TestCase
             $container->setDefinition($id, $definition);
         }
 
-        $sfExt->load(array(array('annotations' => false)), $container);
+        $sfExt->load([['annotations' => false]], $container);
         $extension->load($configs, $container);
 
         $bundle = new FxpCacheBundle();
         $bundle->build($container);
 
-        $container->getCompilerPassConfig()->setOptimizationPasses(array());
-        $container->getCompilerPassConfig()->setRemovingPasses(array());
+        $container->getCompilerPassConfig()->setOptimizationPasses([]);
+        $container->getCompilerPassConfig()->setRemovingPasses([]);
         $container->compile();
 
         return $container;

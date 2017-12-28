@@ -46,16 +46,16 @@ class CachePoolPassTest extends TestCase
     public function testOverrideCacheAdapterServiceClasses()
     {
         /* @var Definition[] $poolDefinitions */
-        $poolDefinitions = array(
+        $poolDefinitions = [
             'cache.adapter.filesystem' => $this->createCacheDefinition(SymfonyFilesystemAdapter::class),
             'cache.adapter.apcu' => $this->createCacheDefinition(SymfonyApcuAdapter::class),
             'cache.adapter.abstract_adapter' => $this->createCacheDefinition(AdapterInterface::class),
-        );
+        ];
 
         $this->container->addDefinitions($poolDefinitions);
-        $this->container->setParameter('fxp_cache.override_cache_services', array(
+        $this->container->setParameter('fxp_cache.override_cache_services', [
             'cache.adapter.filesystem',
-        ));
+        ]);
 
         $this->compiler->process($this->container);
 

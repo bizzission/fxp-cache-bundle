@@ -57,8 +57,8 @@ class Configuration implements ConfigurationInterface
                 })
                 ->then(function ($v) {
                     return true === $v
-                        ? array()
-                        : array('_override_disabled');
+                        ? []
+                        : ['_override_disabled'];
                 })
             ->end()
             ->prototype('scalar')->end()

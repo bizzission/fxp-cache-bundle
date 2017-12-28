@@ -24,68 +24,68 @@ class ConfigurationTest extends TestCase
 {
     public function testNoConfig()
     {
-        $config = array();
+        $config = [];
         $processor = new Processor();
-        $configuration = new Configuration(array(), array());
-        $res = $processor->processConfiguration($configuration, array($config));
+        $configuration = new Configuration([], []);
+        $res = $processor->processConfiguration($configuration, [$config]);
 
-        $valid = array(
-            'override_cache_services' => array(),
-        );
+        $valid = [
+            'override_cache_services' => [],
+        ];
 
         $this->assertSame($valid, $res);
     }
 
     public function testOverrideCacheServicesConfig()
     {
-        $config = array(
-            'override_cache_services' => array(
+        $config = [
+            'override_cache_services' => [
                 'cache.adapter.filesystem',
-            ),
-        );
+            ],
+        ];
         $processor = new Processor();
-        $configuration = new Configuration(array(), array());
-        $res = $processor->processConfiguration($configuration, array($config));
+        $configuration = new Configuration([], []);
+        $res = $processor->processConfiguration($configuration, [$config]);
 
-        $valid = array(
-            'override_cache_services' => array(
+        $valid = [
+            'override_cache_services' => [
                 'cache.adapter.filesystem',
-            ),
-        );
+            ],
+        ];
 
         $this->assertSame($valid, $res);
     }
 
     public function testOverrideCacheServicesConfigWithTrueValue()
     {
-        $config = array(
+        $config = [
             'override_cache_services' => true,
-        );
+        ];
         $processor = new Processor();
-        $configuration = new Configuration(array(), array());
-        $res = $processor->processConfiguration($configuration, array($config));
+        $configuration = new Configuration([], []);
+        $res = $processor->processConfiguration($configuration, [$config]);
 
-        $valid = array(
-            'override_cache_services' => array(),
-        );
+        $valid = [
+            'override_cache_services' => [],
+        ];
 
         $this->assertSame($valid, $res);
     }
 
     public function testOverrideCacheServicesConfigWithFalseValue()
     {
-        $config = array(
+        $config = [
             'override_cache_services' => false,
-        );
+        ];
         $processor = new Processor();
-        $configuration = new Configuration(array(), array());
-        $res = $processor->processConfiguration($configuration, array($config));
+        $configuration = new Configuration([], []);
+        $res = $processor->processConfiguration($configuration, [$config]);
 
-        $valid = array(
-            'override_cache_services' => array(
+        $valid = [
+            'override_cache_services' => [
                 '_override_disabled',
-            ),
-        );
+            ],
+        ];
 
         $this->assertSame($valid, $res);
     }

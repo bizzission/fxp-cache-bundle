@@ -51,7 +51,7 @@ class CacheCollectorPassTest extends TestCase
     public function testOverrideCacheAdapterServiceClasses()
     {
         /* @var Definition[] $poolDefinitions */
-        $poolDefinitions = array(
+        $poolDefinitions = [
             'cache.adapter.filesystem.inner' => $this->createCacheDefinition(FilesystemAdapter::class),
             'cache.adapter.tag_adapter.inner' => $this->createCacheDefinition(TagAwareAdapter::class),
             'cache.adapter.apcu.inner' => $this->createCacheDefinition(SymfonyApcuAdapter::class),
@@ -61,7 +61,7 @@ class CacheCollectorPassTest extends TestCase
             'cache.adapter.tag_adapter' => $this->createCacheDefinition(SymfonyTraceableTagAwareAdapter::class, 'cache.adapter.tag_adapter.inner'),
             'cache.adapter.apcu' => $this->createCacheDefinition(SymfonyTraceableAdapter::class, 'cache.adapter.apcu.inner'),
             'cache.adapter.abstract_adapter' => $this->createCacheDefinition(SymfonyTraceableAdapter::class, 'cache.adapter.abstract_adapter.inner'),
-        );
+        ];
 
         $this->container->addDefinitions($poolDefinitions);
 
@@ -79,9 +79,9 @@ class CacheCollectorPassTest extends TestCase
         $def->addTag('cache.pool');
 
         if (null !== $referenceId) {
-            $def->setArguments(array(
+            $def->setArguments([
                 new Reference($referenceId),
-            ));
+            ]);
         }
 
         return $def;
