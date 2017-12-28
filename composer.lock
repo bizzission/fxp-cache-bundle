@@ -4,8 +4,65 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ab72bea9b0b1152afab30754562386b",
+    "content-hash": "9f49c33a66bf6e19b01bf6174d515453",
     "packages": [
+        {
+            "name": "fxp/cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fxpio/fxp-cache.git",
+                "reference": "949d448d3efcf8e6349263fd511bbb9f6970e7b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fxpio/fxp-cache/zipball/949d448d3efcf8e6349263fd511bbb9f6970e7b2",
+                "reference": "949d448d3efcf8e6349263fd511bbb9f6970e7b2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.0",
+                "symfony/cache": "^3.4.0|^4.0.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.6.0",
+                "predis/predis": "^1.1.0",
+                "symfony/filesystem": "^3.4.0|^4.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fxp\\Component\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Pluchino",
+                    "email": "francois.pluchino@gmail.com"
+                }
+            ],
+            "description": "Add extra features to Symfony PSR-6 Cache Component",
+            "homepage": "https://github.com/fxpio/fxp-cache",
+            "keywords": [
+                "cache",
+                "namespace",
+                "prefix",
+                "psr-6"
+            ],
+            "time": "2017-12-28T17:56:09+00:00"
+        },
         {
             "name": "psr/cache",
             "version": "1.0.1",
@@ -195,63 +252,6 @@
                 "simple-cache"
             ],
             "time": "2017-01-02T13:31:39+00:00"
-        },
-        {
-            "name": "sonatra/cache",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-cache.git",
-                "reference": "f3013485cf787cfc5f6721b5a2a1243dc4776ad4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-cache/zipball/f3013485cf787cfc5f6721b5a2a1243dc4776ad4",
-                "reference": "f3013485cf787cfc5f6721b5a2a1243dc4776ad4",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.0",
-                "symfony/cache": "^3.4.0|^4.0.0"
-            },
-            "require-dev": {
-                "doctrine/dbal": "^2.6.0",
-                "predis/predis": "^1.1.0",
-                "symfony/filesystem": "^3.4.0|^4.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sonatra\\Component\\Cache\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Pluchino",
-                    "email": "francois.pluchino@sonatra.com"
-                }
-            ],
-            "description": "Add extra features to Symfony PSR-6 Cache Component",
-            "homepage": "https://github.com/sonatra/sonatra-cache",
-            "keywords": [
-                "cache",
-                "namespace",
-                "prefix",
-                "psr-6"
-            ],
-            "time": "2017-12-26T16:24:07+00:00"
         },
         {
             "name": "symfony/cache",

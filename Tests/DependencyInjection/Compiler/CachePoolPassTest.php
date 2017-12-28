@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\CacheBundle\Tests\DependencyInjection;
+namespace Fxp\Bundle\CacheBundle\Tests\DependencyInjection;
 
+use Fxp\Bundle\CacheBundle\DependencyInjection\Compiler\CachePoolPass;
+use Fxp\Component\Cache\Adapter\FilesystemAdapter;
 use PHPUnit\Framework\TestCase;
-use Sonatra\Bundle\CacheBundle\DependencyInjection\Compiler\CachePoolPass;
-use Sonatra\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Component\Cache\Adapter\ApcuAdapter as SymfonyApcuAdapter;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter as SymfonyFilesystemAdapter;
@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\Definition;
 /**
  * Cache Pool Pass Tests.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class CachePoolPassTest extends TestCase
 {
@@ -53,7 +53,7 @@ class CachePoolPassTest extends TestCase
         );
 
         $this->container->addDefinitions($poolDefinitions);
-        $this->container->setParameter('sonatra_cache.override_cache_services', array(
+        $this->container->setParameter('fxp_cache.override_cache_services', array(
             'cache.adapter.filesystem',
         ));
 

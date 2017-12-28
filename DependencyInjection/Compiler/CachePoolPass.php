@@ -1,31 +1,31 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\CacheBundle\DependencyInjection\Compiler;
+namespace Fxp\Bundle\CacheBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Replace the symfony cache adapters by the sonatra cache adapters for all services
+ * Replace the symfony cache adapters by the fxp cache adapters for all services
  * with the "cache.pool" tag.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class CachePoolPass implements CompilerPassInterface
 {
     /**
      * @var string
      */
-    private static $stBase = 'Sonatra\Component\Cache\Adapter\\';
+    private static $stBase = 'Fxp\Component\Cache\Adapter\\';
 
     /**
      * {@inheritdoc}
@@ -57,9 +57,9 @@ class CachePoolPass implements CompilerPassInterface
      */
     private function getAvailableServices(ContainerBuilder $container)
     {
-        $availables = $container->getParameter('sonatra_cache.override_cache_services');
+        $availables = $container->getParameter('fxp_cache.override_cache_services');
 
-        $container->getParameterBag()->remove('sonatra_cache.override_cache_services');
+        $container->getParameterBag()->remove('fxp_cache.override_cache_services');
 
         return $availables;
     }

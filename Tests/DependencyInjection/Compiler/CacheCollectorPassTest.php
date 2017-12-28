@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\CacheBundle\Tests\DependencyInjection;
+namespace Fxp\Bundle\CacheBundle\Tests\DependencyInjection;
 
+use Fxp\Bundle\CacheBundle\DependencyInjection\Compiler\CacheCollectorPass;
+use Fxp\Component\Cache\Adapter\FilesystemAdapter;
+use Fxp\Component\Cache\Adapter\TagAwareAdapter;
+use Fxp\Component\Cache\Adapter\TraceableAdapter;
+use Fxp\Component\Cache\Adapter\TraceableTagAwareAdapter;
 use PHPUnit\Framework\TestCase;
-use Sonatra\Bundle\CacheBundle\DependencyInjection\Compiler\CacheCollectorPass;
-use Sonatra\Component\Cache\Adapter\FilesystemAdapter;
-use Sonatra\Component\Cache\Adapter\TagAwareAdapter;
-use Sonatra\Component\Cache\Adapter\TraceableAdapter;
-use Sonatra\Component\Cache\Adapter\TraceableTagAwareAdapter;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Component\Cache\Adapter\ApcuAdapter as SymfonyApcuAdapter;
 use Symfony\Component\Cache\Adapter\TraceableAdapter as SymfonyTraceableAdapter;
@@ -28,7 +28,7 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * Cache Collector Pass Tests.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class CacheCollectorPassTest extends TestCase
 {

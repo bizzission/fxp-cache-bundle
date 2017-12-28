@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\CacheBundle\Tests\DependencyInjection;
+namespace Fxp\Bundle\CacheBundle\Tests\DependencyInjection;
 
+use Fxp\Bundle\CacheBundle\DependencyInjection\FxpCacheExtension;
+use Fxp\Bundle\CacheBundle\FxpCacheBundle;
 use PHPUnit\Framework\TestCase;
-use Sonatra\Bundle\CacheBundle\DependencyInjection\SonatraCacheExtension;
-use Sonatra\Bundle\CacheBundle\SonatraCacheBundle;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\DependencyInjection\Container;
@@ -21,17 +21,17 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 /**
- * Sonatra Cache Extension Tests.
+ * Fxp Cache Extension Tests.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
-class SonatraCacheExtensionTest extends TestCase
+class FxpCacheExtensionTest extends TestCase
 {
     public function testNoConfig()
     {
         $container = $this->createContainer();
 
-        $this->assertFalse($container->hasParameter('sonatra_cache.override_cache_services'));
+        $this->assertFalse($container->hasParameter('fxp_cache.override_cache_services'));
     }
 
     /**
@@ -48,19 +48,19 @@ class SonatraCacheExtensionTest extends TestCase
         $container = new ContainerBuilder(new ParameterBag(array(
             'kernel.bundles' => array(
                 'FrameworkBundle' => FrameworkBundle::class,
-                'SonatraCacheBundle' => SonatraCacheBundle::class,
+                'FxpCacheBundle' => FxpCacheBundle::class,
             ),
-            'kernel.cache_dir' => sys_get_temp_dir().'/sonatra_cache_bundle',
+            'kernel.cache_dir' => sys_get_temp_dir().'/fxp_cache_bundle',
             'kernel.debug' => true,
             'kernel.environment' => 'test',
             'kernel.name' => 'kernel',
-            'kernel.root_dir' => sys_get_temp_dir().'/sonatra_cache_bundle',
+            'kernel.root_dir' => sys_get_temp_dir().'/fxp_cache_bundle',
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => Container::class,
         )));
 
         $sfExt = new FrameworkExtension();
-        $extension = new SonatraCacheExtension();
+        $extension = new FxpCacheExtension();
 
         $container->registerExtension($sfExt);
         $container->registerExtension($extension);
@@ -76,7 +76,7 @@ class SonatraCacheExtensionTest extends TestCase
         $sfExt->load(array(array('annotations' => false)), $container);
         $extension->load($configs, $container);
 
-        $bundle = new SonatraCacheBundle();
+        $bundle = new FxpCacheBundle();
         $bundle->build($container);
 
         $container->getCompilerPassConfig()->setOptimizationPasses(array());

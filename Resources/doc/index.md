@@ -19,10 +19,10 @@ Installation is a quick, 2 step process:
 Tell composer to download the bundle by running the command:
 
 ```bash
-$ php composer.phar require sonatra/cache-bundle:"~1.0"
+$ composer require fxp/cache-bundle
 ```
 
-Composer will install the bundle to your project's `vendor/sonatra` directory.
+Composer will install the bundle to your project's `vendor/fxp` directory.
 
 ### Step 2: Enable the bundle
 
@@ -36,21 +36,21 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Sonatra\Bundle\CacheBundle\SonatraCacheBundle(),
+        new Fxp\Bundle\CacheBundle\FxpCacheBundle(),
     );
 }
 ```
 
 ### Step 3: Configure the bundle (optional)
 
-You can override the default configuration adding `sonatra_cache` tree in `app/config/config.yml`.
-For see the reference of Sonatra Cache Configuration, execute command:
+You can override the default configuration adding `fxp_cache` tree in `app/config/config.yml`.
+For see the reference of Fxp Cache Configuration, execute command:
 
 ```bash
-$ php app/console config:dump-reference SonatraCacheBundle 
+$ php app/console config:dump-reference FxpCacheBundle 
 ```
 
 ### Next Steps
 
 Now that you have completed the basic installation and configuration of the
-Sonatra CacheBundle.
+Fxp CacheBundle.
