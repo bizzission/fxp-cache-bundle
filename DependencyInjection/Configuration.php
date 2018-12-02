@@ -53,7 +53,7 @@ class Configuration implements ConfigurationInterface
             ->fixXmlConfig('override_cache_service')
             ->beforeNormalization()
                 ->ifTrue(function ($v) {
-                    return is_bool($v);
+                    return \is_bool($v);
                 })
                 ->then(function ($v) {
                     return true === $v

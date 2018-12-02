@@ -41,7 +41,7 @@ class CachePoolPass implements CompilerPassInterface
             if ($this->endsWith($name, 'Adapter')) {
                 $class = self::$stBase.$name;
 
-                if (class_exists($class) && (empty($availables) || in_array($id, $availables))) {
+                if (class_exists($class) && (empty($availables) || \in_array($id, $availables))) {
                     $def->setClass($class);
                 }
             }
@@ -74,7 +74,7 @@ class CachePoolPass implements CompilerPassInterface
      */
     protected function endsWith($haystack, $needle)
     {
-        $length = strlen($needle);
+        $length = \strlen($needle);
 
         return $length > 0 && (substr($haystack, -$length) === $needle);
     }

@@ -56,10 +56,10 @@ class CacheCollectorPass implements CompilerPassInterface
     {
         $args = $def->getArguments();
 
-        if (count($args) > 0 && $args[0] instanceof Reference) {
+        if (\count($args) > 0 && $args[0] instanceof Reference) {
             $refDef = $container->getDefinition((string) $args[0]);
 
-            if (in_array(AdapterInterface::class, class_implements($refDef->getClass()))) {
+            if (\in_array(AdapterInterface::class, class_implements($refDef->getClass()))) {
                 $def->setClass($adapterClass);
             }
         }
