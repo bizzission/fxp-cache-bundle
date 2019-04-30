@@ -26,7 +26,6 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
  * @author François Pluchino <francois.pluchino@gmail.com>
  *
  * @internal
- * @coversNothing
  */
 final class FxpCacheExtensionTest extends TestCase
 {

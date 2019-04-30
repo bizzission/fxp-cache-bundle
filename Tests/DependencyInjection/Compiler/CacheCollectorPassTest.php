@@ -31,7 +31,6 @@ use Symfony\Component\DependencyInjection\Reference;
  * @author François Pluchino <francois.pluchino@gmail.com>
  *
  * @internal
- * @coversNothing
  */
 final class CacheCollectorPassTest extends TestCase
 {
