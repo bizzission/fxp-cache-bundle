@@ -24,8 +24,11 @@ use Symfony\Component\DependencyInjection\Definition;
  * Cache Pool Pass Tests.
  *
  * @author François Pluchino <francois.pluchino@gmail.com>
+ *
+ * @internal
+ * @coversNothing
  */
-class CachePoolPassTest extends TestCase
+final class CachePoolPassTest extends TestCase
 {
     /**
      * @var ContainerBuilder
@@ -37,15 +40,15 @@ class CachePoolPassTest extends TestCase
      */
     protected $compiler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->container = new ContainerBuilder();
         $this->compiler = new CachePoolPass();
     }
 
-    public function testOverrideCacheAdapterServiceClasses()
+    public function testOverrideCacheAdapterServiceClasses(): void
     {
-        /* @var Definition[] $poolDefinitions */
+        /** @var Definition[] $poolDefinitions */
         $poolDefinitions = [
             'cache.adapter.filesystem' => $this->createCacheDefinition(SymfonyFilesystemAdapter::class),
             'cache.adapter.apcu' => $this->createCacheDefinition(SymfonyApcuAdapter::class),

@@ -19,10 +19,13 @@ use Symfony\Component\Config\Definition\Processor;
  * Configuration Tests.
  *
  * @author François Pluchino <francois.pluchino@gmail.com>
+ *
+ * @internal
+ * @coversNothing
  */
-class ConfigurationTest extends TestCase
+final class ConfigurationTest extends TestCase
 {
-    public function testNoConfig()
+    public function testNoConfig(): void
     {
         $config = [];
         $processor = new Processor();
@@ -36,7 +39,7 @@ class ConfigurationTest extends TestCase
         $this->assertSame($valid, $res);
     }
 
-    public function testOverrideCacheServicesConfig()
+    public function testOverrideCacheServicesConfig(): void
     {
         $config = [
             'override_cache_services' => [
@@ -56,7 +59,7 @@ class ConfigurationTest extends TestCase
         $this->assertSame($valid, $res);
     }
 
-    public function testOverrideCacheServicesConfigWithTrueValue()
+    public function testOverrideCacheServicesConfigWithTrueValue(): void
     {
         $config = [
             'override_cache_services' => true,
@@ -72,7 +75,7 @@ class ConfigurationTest extends TestCase
         $this->assertSame($valid, $res);
     }
 
-    public function testOverrideCacheServicesConfigWithFalseValue()
+    public function testOverrideCacheServicesConfigWithFalseValue(): void
     {
         $config = [
             'override_cache_services' => false,

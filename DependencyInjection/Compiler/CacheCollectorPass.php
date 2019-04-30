@@ -32,7 +32,7 @@ class CacheCollectorPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         foreach ($container->findTaggedServiceIds('cache.pool') as $id => $attributes) {
             $def = $container->getDefinition($id);
@@ -52,14 +52,14 @@ class CacheCollectorPass implements CompilerPassInterface
      * @param Definition       $def          The service definition of adapter
      * @param string           $adapterClass The new class name of adapter
      */
-    private function replaceTraceableAdapter(ContainerBuilder $container, Definition $def, $adapterClass)
+    private function replaceTraceableAdapter(ContainerBuilder $container, Definition $def, $adapterClass): void
     {
         $args = $def->getArguments();
 
         if (\count($args) > 0 && $args[0] instanceof Reference) {
             $refDef = $container->getDefinition((string) $args[0]);
 
-            if (\in_array(AdapterInterface::class, class_implements($refDef->getClass()))) {
+            if (\in_array(AdapterInterface::class, class_implements($refDef->getClass()), true)) {
                 $def->setClass($adapterClass);
             }
         }

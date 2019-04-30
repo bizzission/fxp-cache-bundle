@@ -29,8 +29,11 @@ use Symfony\Component\DependencyInjection\Reference;
  * Cache Collector Pass Tests.
  *
  * @author François Pluchino <francois.pluchino@gmail.com>
+ *
+ * @internal
+ * @coversNothing
  */
-class CacheCollectorPassTest extends TestCase
+final class CacheCollectorPassTest extends TestCase
 {
     /**
      * @var ContainerBuilder
@@ -42,15 +45,15 @@ class CacheCollectorPassTest extends TestCase
      */
     protected $compiler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->container = new ContainerBuilder();
         $this->compiler = new CacheCollectorPass();
     }
 
-    public function testOverrideCacheAdapterServiceClasses()
+    public function testOverrideCacheAdapterServiceClasses(): void
     {
-        /* @var Definition[] $poolDefinitions */
+        /** @var Definition[] $poolDefinitions */
         $poolDefinitions = [
             'cache.adapter.filesystem.inner' => $this->createCacheDefinition(FilesystemAdapter::class),
             'cache.adapter.tag_adapter.inner' => $this->createCacheDefinition(TagAwareAdapter::class),

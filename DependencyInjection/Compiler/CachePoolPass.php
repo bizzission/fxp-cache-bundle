@@ -30,7 +30,7 @@ class CachePoolPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $availables = $this->getAvailableServices($container);
 
@@ -41,11 +41,26 @@ class CachePoolPass implements CompilerPassInterface
             if ($this->endsWith($name, 'Adapter')) {
                 $class = self::$stBase.$name;
 
-                if (class_exists($class) && (empty($availables) || \in_array($id, $availables))) {
+                if (class_exists($class) && (empty($availables) || \in_array($id, $availables, true))) {
                     $def->setClass($class);
                 }
             }
         }
+    }
+
+    /**
+     * Check if the string ends with.
+     *
+     * @param string $haystack The haystack
+     * @param string $needle   The needle
+     *
+     * @return bool
+     */
+    protected function endsWith($haystack, $needle)
+    {
+        $length = \strlen($needle);
+
+        return $length > 0 && (substr($haystack, -$length) === $needle);
     }
 
     /**
@@ -62,20 +77,5 @@ class CachePoolPass implements CompilerPassInterface
         $container->getParameterBag()->remove('fxp_cache.override_cache_services');
 
         return $availables;
-    }
-
-    /**
-     * Check if the string ends with.
-     *
-     * @param string $haystack The haystack
-     * @param string $needle   The needle
-     *
-     * @return bool
-     */
-    protected function endsWith($haystack, $needle)
-    {
-        $length = \strlen($needle);
-
-        return $length > 0 && (substr($haystack, -$length) === $needle);
     }
 }

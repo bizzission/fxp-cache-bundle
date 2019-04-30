@@ -28,12 +28,12 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('fxp_cache');
-        /* @var ArrayNodeDefinition $rootNode */
+        /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
-                ->append($this->getOverrideCacheServicesNode())
+            ->append($this->getOverrideCacheServicesNode())
             ->end()
         ;
 
@@ -48,15 +48,15 @@ class Configuration implements ConfigurationInterface
     protected function getOverrideCacheServicesNode()
     {
         $treeBuilder = new TreeBuilder('override_cache_services');
-        /* @var ArrayNodeDefinition $node */
+        /** @var ArrayNodeDefinition $node */
         $node = $treeBuilder->getRootNode();
         $node
             ->fixXmlConfig('override_cache_service')
             ->beforeNormalization()
-                ->ifTrue(function ($v) {
+            ->ifTrue(function ($v) {
                     return \is_bool($v);
                 })
-                ->then(function ($v) {
+            ->then(function ($v) {
                     return true === $v
                         ? []
                         : ['_override_disabled'];

@@ -24,10 +24,13 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
  * Fxp Cache Extension Tests.
  *
  * @author François Pluchino <francois.pluchino@gmail.com>
+ *
+ * @internal
+ * @coversNothing
  */
-class FxpCacheExtensionTest extends TestCase
+final class FxpCacheExtensionTest extends TestCase
 {
-    public function testNoConfig()
+    public function testNoConfig(): void
     {
         $container = $this->createContainer();
 
