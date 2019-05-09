@@ -73,10 +73,11 @@ class CacheCollectorPass implements CompilerPassInterface
      *
      * @return bool
      */
-    private function isValidAdapter(Definition $def, $validClass)
+    private function isValidAdapter(Definition $def, string $validClass): bool
     {
         $class = $def->getClass();
 
-        return $class === $validClass && TraceableTagAwareAdapter::class !== $class && TraceableAdapter::class !== $class;
+        return $class === $validClass && TraceableTagAwareAdapter::class !== $class
+            && TraceableAdapter::class !== $class;
     }
 }

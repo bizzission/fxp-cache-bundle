@@ -56,7 +56,7 @@ class CachePoolPass implements CompilerPassInterface
      *
      * @return bool
      */
-    protected function endsWith($haystack, $needle)
+    protected function endsWith(string $haystack, string $needle): bool
     {
         $length = \strlen($needle);
 
@@ -70,7 +70,7 @@ class CachePoolPass implements CompilerPassInterface
      *
      * @return string[]
      */
-    private function getAvailableServices(ContainerBuilder $container)
+    private function getAvailableServices(ContainerBuilder $container): array
     {
         $availables = $container->getParameter('fxp_cache.override_cache_services');
 

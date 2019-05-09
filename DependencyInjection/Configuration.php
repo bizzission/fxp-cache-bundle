@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('fxp_cache');
         /** @var ArrayNodeDefinition $rootNode */
@@ -45,7 +45,7 @@ class Configuration implements ConfigurationInterface
      *
      * @return ArrayNodeDefinition
      */
-    protected function getOverrideCacheServicesNode()
+    protected function getOverrideCacheServicesNode(): ArrayNodeDefinition
     {
         $treeBuilder = new TreeBuilder('override_cache_services');
         /** @var ArrayNodeDefinition $node */
